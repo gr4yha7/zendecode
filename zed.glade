@@ -33,6 +33,7 @@
                   <object class="GtkTextView" id="entry_input">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Place input here</property>
                     <property name="wrap_mode">char</property>
                     <property name="left_margin">5</property>
                     <property name="right_margin">5</property>
@@ -60,6 +61,7 @@
                   <object class="GtkTextView" id="entry_output">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Output</property>
                     <property name="wrap_mode">char</property>
                     <property name="justification">right</property>
                     <property name="left_margin">5</property>
@@ -242,12 +244,11 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_clear">
-                <property name="label">gtk-clear</property>
+              <object class="GtkButton" id="btn_exit">
+                <property name="label">Exit</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -255,11 +256,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_rsa_key">
-                <property name="label" translatable="yes">RSA Key</property>
+              <object class="GtkButton" id="btn_clear">
+                <property name="label">gtk-clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
