@@ -36,6 +36,7 @@ var (
 	btnURLEnc           *gtk.Button
 	btnURLDec           *gtk.Button
 	btnClear            *gtk.Button
+	btnExit            *gtk.Button
 
 	// entryInputBuffer  *gtk.TextBuffer
 	// entryOutputBuffer *gtk.TextBuffer
@@ -423,13 +424,17 @@ func main() {
 		clearBtnObj := getGTKObject("btn_clear", builder)
 		if btnClear, ok = clearBtnObj.(*gtk.Button); ok {
 			btnClear.Connect("clicked", btnClearClicked)
-			// context, err := btnClear.GetStyleContext()
-			// if err != nil {
-			// 	log.Fatalln("couldn't get window's style context: ", err)
-			// } else {
-			// 	log.Println("Got window's style context!")
-			// }
-			// context.AddProvider(cssProvider, gtk.STYLE_PROVIDER_PRIORITY_USER)
+		} else {
+			log.Fatalln("error: not a button!\ntype: ", reflect.TypeOf(clearBtnObj))
+		}
+
+		// get btn_exit object
+		exitBtnObj := getGTKObject("btn_exit", builder)
+		if btnExit, ok = exitBtnObj.(*gtk.Button); ok {
+			btnExit.Connect("clicked", func () {
+				// exits application
+				app.Quit()
+			})
 		} else {
 			log.Fatalln("error: not a button!\ntype: ", reflect.TypeOf(clearBtnObj))
 		}
